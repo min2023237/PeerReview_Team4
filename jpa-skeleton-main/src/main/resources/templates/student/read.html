@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>[[${student.id}]]. [[${student.name}]]</h1>
+<p>나이: [[${student.age}]]</p>
+<p>전화번호: [[${student.phone}]]</p>
+<p>이메일: [[${student.email}]]</p>
+<!--/*
+<p th:if="${student.advisor != null}">지도교수: [[${student.advisor.firstName}]] [[${student.advisor.lastName}]]</p>
+*/-->
+<!-- 홈으로 가는 링크 -->
+<a href="/student">Back</a>
+<a th:href="@{/student/{id}/update-view(id=${student.id})}">Edit</a>
+<!-- 삭제하기 버튼 -->
+<form th:action="@{/student/{id}/delete(id=${student.id})}" method="post">
+  <input type="submit" value="Delete">
+</form>
+</body>
+</html>

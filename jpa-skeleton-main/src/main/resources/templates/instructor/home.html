@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Instructor List</h1>
+<div th:if="${instructors.isEmpty()}">
+  <p>No Instructors Here...</p>
+</div>
+<div th:unless="${instructors.isEmpty()}" th:each="instructor: ${instructors}">
+  <p>[[${instructor.id}]] <a th:href="@{/instructor/{id}(id=${instructor.id})}">[[${instructor.firstName}]] [[${instructor.lastName}]]</a></p>
+</div>
+</body>
+</html>

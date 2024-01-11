@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>[[${instructor.firstName}]] [[${instructor.lastName}]]</h1>
+<!--/*
+<div th:if="${instructor.advisingStudents.isEmpty()}">
+  <p>No Students Here...</p>
+</div>
+<div th:unless="${instructor.advisingStudents.isEmpty()}">
+  <p th:each="student: ${instructor.advisingStudents}">
+    [[${student.id}]]. [[${student.name}]]
+  </p>
+</div>
+*/-->
+</body>
+</html>

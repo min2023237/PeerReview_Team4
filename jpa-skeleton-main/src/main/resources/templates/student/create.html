@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .mb-3 {
+        margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Create Student</h1>
+  <form action="/student/create" method="post">
+    <div class="mb-3">
+      <label>
+        Name: <input type="text" name="name" value="Lorem Ipsum">
+      </label>
+    </div>
+    <div class="mb-3">
+      <label>
+        Age: <input type="number" name="age" value="25">
+      </label>
+    </div>
+    <div class="mb-3">
+      <label>
+        Phone: <input type="text" name="phone" value="010-0000-0000">
+      </label>
+    </div>
+    <div class="mb-3">
+      <label>
+        Email: <input type="text" name="email" value="lorem@gmail.com">
+      </label>
+    </div>
+    <!--/*
+    <div class="mb-3">
+      <label>
+        Instructor:
+        <select name="advisor-id">
+          <option
+                  th:each="instructor: ${instructors}"
+                  th:value="${instructor.id}"
+          >
+            [[${instructor.firstName}]] [[${instructor.lastName}]]
+          </option>
+        </select>
+      </label>
+    </div>
+    */-->
+    <div class="mb-3">
+      <input type="submit">
+    </div>
+  </form>
+  <a href="/student">Back</a>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form th:action="@{/student/{id}/update(id=${student.id})}" method="post">
+  <div class="mb-3">
+    <label>
+      Name: <input type="text" name="name" th:value="${student.name}">
+    </label>
+  </div>
+  <div class="mb-3">
+    <label>
+      Age: <input type="number" name="age" th:value="${student.age}">
+    </label>
+  </div>
+  <div class="mb-3">
+    <label>
+      Phone: <input type="text" name="phone" th:value="${student.phone}">
+    </label>
+  </div>
+  <div class="mb-3">
+    <label>
+      Email: <input type="text" name="email" th:value="${student.email}">
+    </label>
+  </div>
+  <!--/*
+  <div class="mb-3">
+    <label>
+      Instructor:
+      <select name="advisor-id">
+        <option
+                th:each="instructor: ${instructors}"
+                th:value="${instructor.id}"
+                th:selected="${instructor.id == student.advisor.id}"
+        >
+          [[${instructor.firstName}]] [[${instructor.lastName}]]
+        </option>
+      </select>
+    </label>
+  </div>
+  */-->
+  <div class="mb-3">
+    <input type="submit">
+  </div>
+  <a th:href="@{/student/{id}(id=${student.id})}">Back</a>
+</form>
+</body>
+</html>
