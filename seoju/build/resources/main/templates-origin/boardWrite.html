@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시물 작성 폼</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<h1>게시글 작성</h1>
+<div class="layout">
+  <!--  <form action = "/board/writesub" method = "post" enctype = "multipart/form-data">-->
+  <!--    카테고리 : <input name="categoryid" type="number"> <br><br>-->
+
+  <form action="/board/writesub" method="post" enctype="multipart/form-data">
+    카테고리 :
+    <select name="categoryid">
+      <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.categoryname}"></option>
+    </select>
+    <br><br>
+    제목 : <input name="title" type="text"> <br><br>
+    내용 : <textarea name="content"> 내용을 입력하세요 </textarea> <br><br>
+    비밀번호 : <input name="password" type="password"> <br>
+
+    <input type="file" name="file">
+    <button type="submit"> 작성</button>
+  </form>
+</div>
+</body>
+</html>

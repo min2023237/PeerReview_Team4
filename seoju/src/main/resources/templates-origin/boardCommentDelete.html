@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>댓글 삭제 확인</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<h1>댓글 삭제</h1>
+<form th:action="@{/board/deleteComment/{id}(id=${comment.id})}" method = "post">
+  <input type="hidden" name="comment" th:value="${comment.commentpw}">
+  패스워드: <input type="password" name="password">
+  <br><br>
+  <button type="submit">삭제 확인</button>
+</form>
+</body>
+
+</html>

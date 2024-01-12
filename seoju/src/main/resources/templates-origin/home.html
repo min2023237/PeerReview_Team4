@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cat in Box</title>
+</head>
+<body>
+<h1> Cat in Box 😺</h1>
+<a th:href="@{/board/list}">전체 게시글 보기</a>
+<tr th:each="category : ${categories}">
+  <td>
+    <a th:text="${category.categoryname}" th:href="@{/board/list/{id}(id=${category.id})}"> 카테고리명 </a>
+  </td>
+</tr>
+<a th:href="@{/board/write}">글 작성 하기</a>
+</body>
+</html>
