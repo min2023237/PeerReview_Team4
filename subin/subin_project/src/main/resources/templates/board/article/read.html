@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .comment-input {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1>Article: [[${article.title}]]</h1>
+<hr>
+<p>[[${article.content}]]</p>
+
+<!--뒤로가기, 수정 버튼-->
+<p>
+    <a th:href="@{/board/{boardId}(boardId=${boardId})}">Back</a>
+    <a th:href="@{/board/{boardId}/article/{aid}/edit(aid=${article.id}, boardId=${boardId})}" style="display: inline;">Edit</a>
+    <a th:href="@{/board/{boardId}/article/{id}/delete-view(id=${article.id}, boardId=${boardId})}" style="display: inline;">Delete</a>
+</p>
+<hr>
+<h3>Comment</h3>
+<form th:action="@{/board/{boardId}/article/{id}/comment(boardId=${boardId},id=${article.id})}" method="post">
+    <div>
+        <label for="content-area">Content</label>
+        <textarea class="comment-input" cols="30" rows="3" name="content" id="content-area" placeholder="내용을 입력하세요"></textarea>
+    </div>
+    <div>
+        <label for="originPassword">Password</label>
+        <input class="comment-input" type="password" name="originPassword" id="originPassword" placeholder="비밀번호를 입력하세요">
+    </div>
+    <input type="submit" value="Write">
+</form>
+<hr>
+<div th:if="${article.comments.isEmpty()}"><h3>No Comments</h3></div>
+<div th:unless="${article.comments.isEmpty()}" th:each="comment: ${article.comments}">
+    <div>
+        <h5 th:text="${comment.content}"></h5>
+        <div>
+            <a th:href="@{/board/{boardId}/article/{articleId}/comment/{commentId}/edit(boardId=${boardId}, articleId=${article.id},commentId=${comment.id})}">Comment Edit</a>
+            <a th:href="@{/board/{boardId}/article/{articleId}/comment/{commentId}/delete(boardId=${boardId}, articleId=${article.id},commentId=${comment.id})}" style="display: inline;">Comment Delete</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

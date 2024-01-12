@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Comment for: [[${article.title}]]</title>
+    <style>
+        .comment-input {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+    </style>
+<script>
+    function validatePassword() {
+        // 사용자가 입력한 비밀번호와 댓글 작성 시 입력한 비밀번호를 가져옴
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        var originPassword = document.getElementById("originPassword").value;
+
+        // 댓글 작성 시 입력한 비밀번호와 일치하는지 확인
+        if (originPassword !== confirmPassword) {
+            alert("현재 비밀번호가 일치하지 않습니다.");
+            return false;
+        }
+        else{
+            alert("비밀번호 일치!");
+            return true;
+        }
+    }
+</script>
+</head>
+<h1>Comment Delete: [[${comment.content}]]</h1>
+<a th:href="@{/board/{boardId}/article/{id}(boardId=${boardId},id=${article.id})}">게시글로 돌아가기</a>
+<hr>
+<form th:action="@{/board/{boardId}/article/{aId}/comment/{cId}/commentDelete(boardId=${boardId},aId=${article.id},cId=${comment.id})}" method="post" onsubmit="return validatePassword();">
+    <div>
+        <label for="content-area" >Content</label>
+        <textarea readonly class="comment-input" cols="30" rows="3" name="content" id="content-area" >[[${comment.content}]]</textarea>
+    </div>
+    <div>
+        <label for="originPassword">현재 비밀번호:</label>
+        <input readonly class="comment-input" type="password" id="originPassword" name="originPassword" required th:value="${comment.originPassword}">
+        <br>
+        <label for="confirmPassword">비밀번호 확인:</label>
+        <input class="comment-input" type="password" id="confirmPassword" name="confirmPassword" required>
+        <br>
+    </div>
+    <input type="submit" value="Delete">
+</form>
+</body>
+</html>
