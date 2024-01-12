@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>게시글 상세 페이지</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+      body {
+          background-color: #343a40;
+          color: #fff;
+      }
+      h1, h3 {
+          color: #ffc107;
+      }
+      img {
+          max-width: 100%;
+          height: auto;
+          margin-top: 20px;
+          border-radius: 8px;
+      }
+      p {
+          margin-top: 20px;
+      }
+      a {
+          color: #6c757d;
+          margin-right: 10px;
+      }
+      a:hover {
+          color: #ffc107;
+      }
+      hr {
+          border-top: 1px solid #6c757d;
+          margin-top: 40px;
+          margin-bottom: 40px;
+      }
+      .comment-container {
+          margin-bottom: 20px;
+      }
+      .comment {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 10px;
+      }
+      .delete-comment {
+          color: #dc3545;
+          margin-left: 5px;
+      }
+      .delete-comment:hover {
+          text-decoration: none;
+          color: #ffc107;
+      }
+      .comment-form {
+          margin-top: 40px;
+      }
+      .btn-comment {
+          background-color: #6c757d;
+          color: #fff;
+          border: 1px solid #6c757d;
+          border-radius: 4px;
+          cursor: pointer;
+      }
+      .btn-comment:hover {
+          background-color: #495057;
+      }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <h1 th:text="${board.title}">제목입니다.</h1>
+  <img th:if="${board.filepath != null}" th:src="@{${board.filepath}}" alt="이미지">
+  <p th:text="${board.content}">내용이 들어갈 부분입니다.</p>
+
+  <a class="btn btn-warning" th:href="@{/board/modify/{id}(id=${board.id})}">수정</a>
+  <a class="btn btn-danger" th:href="@{/board/delete/{id}(id=${board.id})}">삭제</a>
+  <br><br><br><br>
+
+  <!-- 댓글 목록 표시 -->
+  <hr>
+  <h3>👇작성된 댓글👇</h3>
+  <div class="comment-container" th:each="comment : ${board.comments}">
+    <div class="comment">
+      <span th:text="${'👤' + comment.commentname + ' : ' + comment.commentcontent}">댓글 내용이 들어갈 부분입니다.</span>
+      <a class="delete-comment" th:href="@{/board/deleteComment/{id}(id=${comment.id})}">❎</a>
+    </div>
+  </div>
+  <br><br><br><br>
+
+  <!-- 댓글 작성 폼 -->
+  <hr>
+  <h3>👇댓글 쓰기👇</h3>
+  <form class="comment-form" action="/board/addComment" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="boardid" th:value="${board.id}">
+    <div class="form-group">
+      <label for="commentname">작성자:</label>
+      <input class="form-control" type="text" name="commentname">
+    </div>
+    <div class="form-group">
+      <label for="commentpw">패스워드:</label>
+      <input class="form-control" type="password" name="commentpw">
+    </div>
+    <div class="form-group">
+      <label for="commentcontent">내용:</label>
+      <textarea class="form-control" name="commentcontent">내용을 입력하세요</textarea>
+    </div>
+    <button class="btn btn-comment" type="submit">댓글 작성</button>
+  </form>
+
+  <!-- 이전글 -->
+  <a class="btn btn-info" href="#">이전글</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

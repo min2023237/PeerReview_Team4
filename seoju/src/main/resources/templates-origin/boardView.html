@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>게시글 상세 페이지</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+
+<body>
+<h1 th:text="${board.title}">제목입니다.</h1>
+<img th:if="${board.filepath != null}" th:src="@{${board.filepath}}" alt="이미지">
+<p th:text="${board.content}">내용이 들어갈 부분입니다.</p>
+
+<a th:href="@{/board/modify/{id}(id=${board.id})}"> 수정 </a>
+<a th:href="@{/board/delete/{id}(id=${board.id})}"> 삭제 </a>
+<br><br><br><br>
+
+<!-- 댓글 목록 표시 -->
+<hr>
+<h3>👇작성된 댓글👇</h3>
+<div th:each="comment : ${board.comments}">
+  <span th:text="${'👤' + comment.commentname + ' : ' + comment.commentcontent}">댓글 내용이 들어갈 부분입니다.</span>
+  <a th:href="@{/board/deleteComment/{id}(id=${comment.id})}">❎</a>
+</div>
+<br><br><br><br>
+
+<!-- 댓글 작성 폼 -->
+<hr>
+<h3>👇댓글 쓰기👇</h3>
+<form action = "/board/addComment" method="post" enctype = "multipart/form-data">
+  <input type="hidden" name="boardid" th:value="${board.id}">
+  작성자: <input type="text" name="commentname">
+  패스워드: <input type="text" name="commentpw">
+  내용: <textarea name="commentcontent"> 내용을 입력하세요 </textarea> <br><br>
+  <button type="submit">댓글 작성</button>
+</form>
+
+<!-- 이전글 -->
+<a href=""></a>
+</body>
+</html>

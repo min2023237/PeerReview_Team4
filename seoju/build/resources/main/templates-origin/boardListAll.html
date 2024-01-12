@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시글 리스트 페이지</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<div class="layout">
+  <table>
+    <thead>
+    <tr>
+      <th> 카테고리번호 </th>
+      <th> 카테고리명 </th>
+    </tr>
+    </thead>
+    <thead>
+    <tr th:each="category : ${categories}">
+      <td th:text = "${category.id}"> 번호 </td>
+      <td >
+        <!-- a태그에 안넣고 td태그에 넣으면 오류나용 -->
+        <a th:text = "${category.categoryname}" th:href="@{/board/list/{id}(id=${category.id})}"> 카테고리명 </a>
+      </td>
+    </tr>
+    </thead>
+  </table>
+
+  <table>
+    <thead>
+    <tr>
+      <th> 글번호 </th>
+      <th> 제목 </th>
+    </tr>
+    </thead>
+    <thead>
+    <tr th:each="board : ${list}">
+      <td th:text = "${board.id}"> 번호 </td>
+      <td >
+        <!-- a태그에 안넣고 td태그에 넣으면 오류나용 -->
+        <a th:text = "${board.title}" th:href="@{/board/view/{id}(id=${board.id})}"> 제목입니다 </a>
+      </td>
+    </tr>
+    </thead>
+  </table>
+  <!-- th:block : 굳이 태그로 감쌀 필요가 없는 부분을 감쌀 때 사용 -->
+  <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+    <!-- param : 쿼리스트링 중 특정 구문을 넣어서 검색할 수 있음 -->
+    <a th:if="${page != nowPage}" th:href="@{/board/list(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a> <!-- 현재 페이지가 아니면 -->
+    <a th:unless="${page != nowPage}" th:text="${page}" style="color : red"> </a> <!-- 현재 페이지 표시 -->
+  </th:block>
+
+  <form th:action="@{/board/list}" method="get">
+    검색기준 :
+    <select name="searchType">
+      <option value="title">제목</option>
+      <option value="content">내용</option>
+    </select>
+    <input type="text" name="searchKeyword">
+    <button type="submit">검색</button>
+  </form>
+</div>
+</body>
+</html>

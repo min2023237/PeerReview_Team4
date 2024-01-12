@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시물 수정 폼</title>
+  <link th:href="@{/css/style.css}" rel="stylesheet"/>
+</head>
+<body>
+<h1>게시글 수정</h1>
+<div class="layout">
+  <form th:action="@{/board/update/{id}(id=${board.id})}" method = "post">
+    제목 : <input name="title" type="text" th:value="${board.title}"> <br><br>
+    <!-- textarea는 vlaue로는 안들어간다. text로 넣어야 함 -->
+    내용 : <textarea name="content" th:text="${board.content}"> 내용을 입력하세요 </textarea> <br><br>
+    패스워드: <input type="password" name="password">
+    <button type="submit"> 수정 </button>
+  </form>
+</div>
+</body>
+</html>
