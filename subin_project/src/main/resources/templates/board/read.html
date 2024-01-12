@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${board.boardName}"></title>
+
+</head>
+<body>
+<h1>Article List</h1>
+<a th:href="@{/board}">전체 게시판 보기</a>
+<a th:href="@{/board/{bId}/article/write(bId=${board.id})}">Write</a>
+<h3 th:if="${board.articles.isEmpty()}">No Articles</h3>
+<table th:unless="${board.articles.isEmpty()}" class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="index: ${#numbers.sequence(board.articles.size() - 1, 0, -1)}">
+        <th scope="col" th:text="${board.articles[index].id}"></th>
+        <th scope="col">
+            <a th:href="@{/board/{boardId}/article/{id}(boardId=${board.id},id=${board.articles[index].id})}" th:text="${board.articles[index].title}"></a>
+        </th>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
