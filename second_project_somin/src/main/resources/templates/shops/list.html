@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Open Shops</title>
+</head>
+<body>
+<h1>Open Shops</h1>
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Owner</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="shop : ${shops}">
+        <td th:text="${shop.name}"></td>
+        <td th:text="${shop.description}"></td>
+        <td th:text="${shop.category}"></td>
+        <td th:text="${shop.username}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

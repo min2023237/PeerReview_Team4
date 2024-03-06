@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Business Requests</title>
+</head>
+<body>
+<h1>Pending Business Requests</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Business Number</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="request : ${requests}">
+        <td th:text="${request.id}"></td>
+        <td th:text="${request.username}"></td>
+        <td th:text="${request.businessNumber}"></td>
+        <td th:text="${request.requestStatus}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
