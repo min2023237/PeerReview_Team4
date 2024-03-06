@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>전체 게시판 모음</title>
+</head>
+<body>
+<h1>Board List</h1>
+<h2 th:if="${boards.isEmpty()}">No boards</h2>
+<div th:unless="${boards.isEmpty()}">
+    <div class="row">
+        <div th:each="board: ${boards}">
+            <div>
+                <a th:text="${board.boardName}" th:href="@{/board/{id}(id=${board.id})}"></a>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<a th:href="@{/board/article/index}">전체 게시글</a>
+</body>
+</html>

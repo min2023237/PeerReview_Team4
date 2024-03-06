@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${article.title}"></title>
+    <style>
+        .article-input {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+    </style>
+    <script>
+    function validatePassword() {
+    // 사용자가 입력한 비밀번호와 회원가입 시 입력한 비밀번호를 가져옴
+    var confirmPassword = document.getElementById("confirmPassword").value;
+    var originPassword = document.getElementById("originPassword").value;
+
+    // 회원가입 시 입력한 비밀번호와 일치하는지 확인
+    if (originPassword !== confirmPassword) {
+        alert("비밀번호가 일치하지 않습니다.");
+        return false;
+    }
+    else{
+        alert("비밀번호가 일치합니다.");
+        return true;
+    }
+    }
+</script>
+</head>
+<body>
+<div>
+    <h1>Article Edit: [[${article.title}]]</h1>
+    <a th:href="@{/board/{boardId}(boardId=${boardId})}">Back</a>
+</div>
+<hr>
+<form th:action="@{/board/{boardId}/article/{aid}/update(boardId=${boardId}, aid=${article.id})}" method="post" onsubmit="return validatePassword();">
+    <div>
+        <label for="title-input" >Title</label>
+        <input class="article-input" type="text" name="title" id="title-input" th:value="${article.title}">
+    </div>
+    <div>
+        <label for="content-area" >Content</label>
+        <textarea class="article-input" name="content" id="content-area" >[[${article.content}]]</textarea>
+    </div>
+    <div>
+        <label for="originPassword">현재 비밀번호:</label>
+        <input readonly class="article-input" type="password" id="originPassword" name="originPassword" required th:value="${article.originPassword}">
+        <br>
+        <label for="confirmPassword">비밀번호 확인:</label>
+        <input class="article-input" type="password" id="confirmPassword" name="confirmPassword" required>
+        <br>
+    </div>
+    <input type="submit" value="Edit">
+</form>
+</body>
+</html>

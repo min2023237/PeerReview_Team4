@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Write Article</title>
+    <style>
+        .article-input {
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>New Article</h1>
+</div>
+<hr>
+<form th:action="@{/board/{boardId}/article(boardId=${boardId})}" method="post">
+    <div>
+        <label for="title-input">Title</label>
+        <input class="article-input" type="text" name="title" id="title-input">
+    </div>
+    <div>
+        <label for="content-area">Content</label>
+        <textarea class="article-input" name="content" id="content-area" ></textarea>
+    </div>
+    <div>
+        <label for="originPassword">Password</label>
+        <input class="article-input" type="password" name="originPassword" id="originPassword">
+    </div>
+    <label>
+        Board:
+        <select name="boardId">
+            <option th:each="board : ${boards}" th:value="${board.id}">
+                [[${board.boardName}]]
+            </option>
+        </select>
+    </label>
+    <div>
+        <input type="submit">
+    </div>
+</form>
+<a th:href="@{/board/{boardId}(boardId=${boardId})}">Article List</a>
+</body>
+</html>
