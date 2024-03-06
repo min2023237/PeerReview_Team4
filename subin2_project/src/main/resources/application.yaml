@@ -1,0 +1,25 @@
+spring:
+  mvc:
+    # 어떤 경로에 대한 요청의 응답으로
+    # 정적 파일 응답을 할지 결정하는 설정
+    static-path-pattern: /static/**
+  web:
+    resources:
+      # 어떤 폴더의 파일을 정적 응답으로 전달할지를 설정
+      static-locations: file:media/,classpath:/static
+
+  datasource:
+    url: jdbc:sqlite:db.sqlite
+    driver-class-name: org.sqlite.JDBC
+    username: sa
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    database-platform: org.hibernate.community.dialect.SQLiteDialect
+    show-sql: true
+
+# 커스텀 설정(Spring 내부 설정 아님)
+jwt:
+  secret: aaaabbbsdifqbvaesoioegwaaaabbbsdifqbvaesoioegwaaaabbbsdifqbvaes

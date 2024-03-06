@@ -1,0 +1,1224 @@
+{
+	"info": {
+		"_postman_id": "2de7b44b-2632-4fd2-8fc6-ff412fdce7c5",
+		"name": "Mission_Shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32407371"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Admin",
+					"item": [
+						{
+							"name": "GET /users/admin/applyList",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwOTYwMzQ5MywiZXhwIjoxNzA5NjA3MDkzLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.W-vUIdLZX5bbkxQJIcYXzxe_9_GXJRG7d_qgZ1NvojXR66zLNm79b6tqMcCxJp0i",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/users/admin/applyList",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users",
+										"admin",
+										"applyList"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST /users/admin/apply/accept-refuse",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwOTYxNjM5NywiZXhwIjoxNzA5NjE5OTk3LCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.pupW2p37oBU7IomRmdra218XRcvUL68JzRwx4lSNCnLBPfTNgNepm3JXHk2cVqJ8",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/users/admin/apply/accept-refuse?businessNumber=business2&acceptRefuse=ACCEPT",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"users",
+										"admin",
+										"apply",
+										"accept-refuse"
+									],
+									"query": [
+										{
+											"key": "businessNumber",
+											"value": "business2"
+										},
+										{
+											"key": "acceptRefuse",
+											"value": "ACCEPT"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST /users/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/register?username=test1&password=password1&password-check=password1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"register"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "test1"
+								},
+								{
+									"key": "password",
+									"value": "password1"
+								},
+								{
+									"key": "password-check",
+									"value": "password1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /users/business",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsImlhdCI6MTcwOTYxNjMyMSwiZXhwIjoxNzA5NjE5OTIxLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.ZCJiemLJu56WhoqqlyKNRUZcfoMS4sYfaoSafmcnjLFblJM_UPxPZ_SUN8hwJXTq",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/business?username=test2&password=password2&businessNumber=business2&apply=APPLY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"business"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "test2"
+								},
+								{
+									"key": "password",
+									"value": "password2"
+								},
+								{
+									"key": "businessNumber",
+									"value": "business2"
+								},
+								{
+									"key": "apply",
+									"value": "APPLY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /users/update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsImlhdCI6MTcwOTYxNjMyMSwiZXhwIjoxNzA5NjE5OTIxLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.ZCJiemLJu56WhoqqlyKNRUZcfoMS4sYfaoSafmcnjLFblJM_UPxPZ_SUN8hwJXTq",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/users/update?username=test2&password=password2&nickname=test22&name=test2&age=22&email=test2@test2.com&phone=010-1234-1234",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"users",
+								"update"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "test2"
+								},
+								{
+									"key": "password",
+									"value": "password2"
+								},
+								{
+									"key": "nickname",
+									"value": "test22"
+								},
+								{
+									"key": "name",
+									"value": "test2"
+								},
+								{
+									"key": "age",
+									"value": "22"
+								},
+								{
+									"key": "email",
+									"value": "test2@test2.com"
+								},
+								{
+									"key": "phone",
+									"value": "010-1234-1234"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Item",
+			"item": [
+				{
+					"name": "POST /items/register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MSIsImlhdCI6MTcwOTYxNDE3NSwiZXhwIjoxNzA5NjE3Nzc1LCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.tZF8cMsHpP2oNWg0U13PDKU24A25O8151TNer-UXDS80ITvhyme9rezPYSU1r4xC",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"i2\",\r\n    \"description\" : \"It is item2 by test1\",\r\n    \"minimumPrice\" : 4400\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/items/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"register"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "test2",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "test2",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /items/itemAllList",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MSIsImlhdCI6MTcwOTE2OTM1NSwiZXhwIjoxNzA5MTcyOTU1LCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.axWTHo7I8YHaIKYnq9bEsGWMhnZ7e8nkadwtI0Pfj2uqd1oIxGLfScRFvqqDAhYM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/items/itemAllList",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"itemAllList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /items/update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MSIsImlhdCI6MTcwOTAwNzE3NCwiZXhwIjoxNzA5MDEwNzc0LCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.rk5qzvvYHbIPPsYUB3ydZJy1x1cJRbmljDycirzGujy-gTdbq3okd4DZ8iVd0m5C",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\" : \"item2\",\r\n    \"description\" : \"item1\",\r\n    \"minimumPrice\" : 11111\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/items/update?title=i2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"update"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "i2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /items/delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MSIsImlhdCI6MTcwOTAwNzE3NCwiZXhwIjoxNzA5MDEwNzc0LCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.rk5qzvvYHbIPPsYUB3ydZJy1x1cJRbmljDycirzGujy-gTdbq3okd4DZ8iVd0m5C",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/items/delete?title=i2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "i2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /items/buyRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MyIsImlhdCI6MTcwODkzMzg3MSwiZXhwIjoxNzA4OTM3NDcxLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.nFc4bnWv2DOX1TR25O5plXXKtoQChQHvw6VxuDIm7wv2WkSwPVCsy4lURKj9tIlE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"offerPrice\" : 2300\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/items/buyRequest?title=item2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"buyRequest"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "item2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /items/offer/read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MyIsImlhdCI6MTcwODkzMzg3MSwiZXhwIjoxNzA4OTM3NDcxLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.nFc4bnWv2DOX1TR25O5plXXKtoQChQHvw6VxuDIm7wv2WkSwPVCsy4lURKj9tIlE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/items/offer/read?id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"offer",
+								"read"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /items/offer/accept-refuse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MSIsImlhdCI6MTcwODkzMzc0MCwiZXhwIjoxNzA4OTM3MzQwLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.gSvMxL2F4V0Z1EWvui-UBFLS260ynz1ok0sUyw0w0jLT1tv2lFEN5PrQ2dVetnQm",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/items/offer/accept-refuse?itemId=1&offerId=1&acceptRefuse=수락",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"offer",
+								"accept-refuse"
+							],
+							"query": [
+								{
+									"key": "itemId",
+									"value": "1"
+								},
+								{
+									"key": "offerId",
+									"value": "1"
+								},
+								{
+									"key": "acceptRefuse",
+									"value": "수락"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /items/offer/confirm",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsImlhdCI6MTcwODkzMzc5MiwiZXhwIjoxNzA4OTM3MzkyLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.mi5fgYNdvHd1x5jwCO538qZNR2N6nF-NcgQfLVH14ljY8miTG3Rhdnv5qtHYCbTe",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/items/offer/confirm?itemId=1&offerId=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"items",
+								"offer",
+								"confirm"
+							],
+							"query": [
+								{
+									"key": "itemId",
+									"value": "1"
+								},
+								{
+									"key": "offerId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Shop",
+			"item": [
+				{
+					"name": "POST /shops/update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsImlhdCI6MTcwOTU5NzUzOCwiZXhwIjoxNzA5NjAxMTM4LCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.fqf4xvQ1KpD1cJEWjQwyCgpaqWWDygmzDX_MHN3addJ7oa-3sr-mqSlAq3J7jPBl",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"GG\",\r\n    \"introduction\" : \"ww\",\r\n    \"category\" : \"FOOD\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shops/update",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shops",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /shops/apply/open",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsImlhdCI6MTcwOTU5NzUzOCwiZXhwIjoxNzA5NjAxMTM4LCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.fqf4xvQ1KpD1cJEWjQwyCgpaqWWDygmzDX_MHN3addJ7oa-3sr-mqSlAq3J7jPBl",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shops/apply/open",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shops",
+								"apply",
+								"open"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /shops/apply/read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsImlhdCI6MTcwOTA4MjEwNCwiZXhwIjoxNzA5MDg1NzA0LCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.9cT40RJMnZj49ib3QJ7Y_4FkcJl2h__27CywsgSABvqnqkIBqq__TNRg-psc-bCs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shops/apply/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shops",
+								"apply",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /shops/apply/open/acceptRefuse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwOTU5NzQ3MSwiZXhwIjoxNzA5NjAxMDcxLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.AFUkZBEGAdJ_ZcydnIeJVe5rUp4sLiNNU6cRuhzy6uMjKD_KrOJwNZkeEc_5avzy",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"GG\",\r\n    \"openAcceptRefuse\": \"허가\"\r\n    // \"refuseReason\" : \"정보 부족\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shops/apply/open/acceptRefuse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shops",
+								"apply",
+								"open",
+								"acceptRefuse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /shops/apply/close",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsImlhdCI6MTcwOTAzNTQxMSwiZXhwIjoxNzA5MDM5MDExLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.qUAS1wt7pf3melUxJghKqkW5OK8McbSPE7x39kMxb-3n9Jg4d5iIn2_NNWrK5Htj",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"closureReason\" : \"파산\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shops/apply/close",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shops",
+								"apply",
+								"close"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /shops/apply/close/read",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwOTAzNTQ0MCwiZXhwIjoxNzA5MDM5MDQwLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.43QmYKwwpOewNOU5UI0ZgecDNuCPiW5ZJB4HyOk7wQRb4aWG2Hb9DvGjx5hYZQjX",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shops/apply/close/read",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shops",
+								"apply",
+								"close",
+								"read"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /shops/apply/close/acceptRefuse",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJhZG1pbiIsImlhdCI6MTcwOTAzNTQ0MCwiZXhwIjoxNzA5MDM5MDQwLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.43QmYKwwpOewNOU5UI0ZgecDNuCPiW5ZJB4HyOk7wQRb4aWG2Hb9DvGjx5hYZQjX",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\" : \"11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shops/apply/close/acceptRefuse",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shops",
+								"apply",
+								"close",
+								"acceptRefuse"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /shops/search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsImlhdCI6MTcwOTEyMzMxMSwiZXhwIjoxNzA5MTI2OTExLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.q6yow1ih8CkBHMhSGV7bzJW7newV8XNlCBOSAkbURSpQs-9IQXP68voTYQz098eq",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shops/search?name=GG&category=FOOD",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shops",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "GG"
+								},
+								{
+									"key": "category",
+									"value": "FOOD"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ShopItem",
+			"item": [
+				{
+					"name": "POST /shop/items/register",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsImlhdCI6MTcwOTU5NzUzOCwiZXhwIjoxNzA5NjAxMTM4LCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.fqf4xvQ1KpD1cJEWjQwyCgpaqWWDygmzDX_MHN3addJ7oa-3sr-mqSlAq3J7jPBl",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"당근\",\r\n    \"description\" : \"못난이 당근\",\r\n    \"price\" : 900,\r\n    \"stock\" : 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shop/items/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop",
+								"items",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /shop/items/update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsImlhdCI6MTcwOTA4NTIzNCwiZXhwIjoxNzA5MDg4ODM0LCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0._jYE3T3_h3_0Cj37VCcNj1PBA6yjzS5te6VjF-UREN5EH89evDYXDY4wVBXWspa3",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"당근\",\r\n    \"description\" : \"못난이 주황색 당근\",\r\n    \"price\" : 1400,\r\n    \"stock\" : 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shop/items/update?name=당근",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop",
+								"items",
+								"update"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "당근"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /shop/items/delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MiIsImlhdCI6MTcwOTA4ODEwMSwiZXhwIjoxNzA5MDkxNzAxLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.a5HOt3BXR5juKENmIJdBNgoouO79mJs9mK_rMhH90OJwkIZnprQLO2clM97ZI61i",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shop/items/delete?name=당근",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop",
+								"items",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "당근"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /shop/items/search",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MSIsImlhdCI6MTcwOTE2NjYyMCwiZXhwIjoxNzA5MTcwMjIwLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.qHkgnLUbS7E8rxJF36ctSgC0r6dLxhTeOhpRJY1rMlWqmmiZA4JRAkdoVNxrU1PU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shop/items/search?name=당근&minPrice=500&maxPrice=1500",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop",
+								"items",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "당근"
+								},
+								{
+									"key": "minPrice",
+									"value": "500"
+								},
+								{
+									"key": "maxPrice",
+									"value": "1500"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /shop/items/buyRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MSIsImlhdCI6MTcwOTU5NzYwMiwiZXhwIjoxNzA5NjAxMjAyLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.GcbKT2lh2nMoSRLZTQy4KCtSQBqlZpGVOnh6-zr7SwRaaDareNUXsaRB49WkLiii",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shop/items/buyRequest?name=당근&amount=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop",
+								"items",
+								"buyRequest"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "당근"
+								},
+								{
+									"key": "amount",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST /shop/items/buyRequest/sendMoney",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MSIsImlhdCI6MTcwOTU5NzYwMiwiZXhwIjoxNzA5NjAxMjAyLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.GcbKT2lh2nMoSRLZTQy4KCtSQBqlZpGVOnh6-zr7SwRaaDareNUXsaRB49WkLiii",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/shop/items/buyRequest/sendMoney?totalPrice=2700",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop",
+								"items",
+								"buyRequest",
+								"sendMoney"
+							],
+							"query": [
+								{
+									"key": "totalPrice",
+									"value": "2700"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /shop/items/buyRequest/check",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MyIsImlhdCI6MTcwOTYxNjUxNSwiZXhwIjoxNzA5NjIwMTE1LCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.GWi_yeT8ydsToaCQzNSgAjoEVHP9jZ-il7R5gHJrTUT-qRpCjSRf0Ka9HMzo-0M_",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shop/items/buyRequest/check",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop",
+								"items",
+								"buyRequest",
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET /shop/items/buyRequest/cancel",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJ0ZXN0MSIsImlhdCI6MTcwOTU5NzYwMiwiZXhwIjoxNzA5NjAxMjAyLCJpc0FjY291bnRFeHBpcmVkIjpmYWxzZX0.GcbKT2lh2nMoSRLZTQy4KCtSQBqlZpGVOnh6-zr7SwRaaDareNUXsaRB49WkLiii",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/shop/items/buyRequest/cancel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"shop",
+								"items",
+								"buyRequest",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "issue JWT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/token/issue",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"token",
+						"issue"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
