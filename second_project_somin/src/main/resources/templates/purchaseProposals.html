@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>구매 제안 목록</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- 필요한 경우 CSS 스타일 -->
+</head>
+<body>
+<h1>구매 제안 목록</h1>
+<table>
+    <thead>
+    <tr>
+        <th>제안 ID</th>
+        <th>아이템 ID</th>
+        <th>사용자 ID</th>
+        <th>상태</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="proposal : ${proposals}">
+        <td th:text="${proposal.id}"></td>
+        <td th:text="${proposal.itemId}"></td>
+        <td th:text="${proposal.user.id}"></td>
+        <td th:text="${proposal.status}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

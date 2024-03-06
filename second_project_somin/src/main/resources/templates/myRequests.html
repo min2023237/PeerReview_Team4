@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>나의 구매 요청 목록</title>
+</head>
+<body>
+<h1>나의 구매 요청 목록</h1>
+<table>
+    <thead>
+    <tr>
+        <th>요청 ID</th>
+        <th>상품 ID</th>
+        <th>제시한 가격</th>
+        <th>구매 수량</th>
+        <th>상태</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="requests : ${purchaseRequests}">
+        <td th:text="${requests.id}"></td>
+        <td th:text="${requests.productId}"></td>
+        <td th:text="${requests.passedPrice}"></td>
+        <td th:text="${requests.quantity}"></td>
+        <td th:text="${requests.status}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

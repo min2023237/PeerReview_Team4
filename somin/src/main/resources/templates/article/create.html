@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 작성</title>
+</head>
+<body>
+<h1>게시글 작성</h1>
+<form action="/create" method="post">
+  <label>
+    <select name="board-id">
+      <option
+        th:each="board: ${boards}"
+        th:value="${board.id}"
+        th:selected="${board.id == boardId}"
+      >
+        [[${board.name}]]
+      </option>
+
+    </select>
+  </label><br>
+  <label for="title-input">
+    제목: <input id="title-input" name="title">
+  </label><br>
+  <label for="content-input">
+    내용: <input id="content-input" name="content">
+  </label><br>
+  <label for="pwd-input">
+    비밀번호: <input id="pwd-input" type="password" name="pwd">
+  </label>
+  <input type="submit">
+</form>
+<a th:href="@{/boards/{id}(id=${boardId})}">뒤로</a>
+</body>
+</html>

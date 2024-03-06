@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>READ</title>
+</head>
+<body>
+<h1>[[${board.id}]]. [[${board.name}]]</h1>
+<div th:if="${board.id} == 1" th:each="article: ${allArticles}">
+    <p><a th:href="@{/article/{id}(id=${article.id}, orderby=id)}"> [[${article.title}]]</a></p>
+</div>
+<div th:unless="${board.id} == 1" th:each="article: ${articles}">
+    <p><a th:href="@{/article/{id}(id=${article.id})}"> [[${article.title}]]</a></p>
+</div>
+<a href="/boards">뒤로</a>
+<a th:href="@{/create-view/{id}(id=${board.id})}">게시글 작성</a>
+</body>
+</html>

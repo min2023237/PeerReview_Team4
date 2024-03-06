@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Shop Requests</title>
+</head>
+<body>
+<h1>Shop Requests</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Reason for Closure</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="shop : ${shops}">
+        <td th:text="${shop.id}"></td>
+        <td th:text="${shop.name}"></td>
+        <td th:text="${shop.status}"></td>
+        <td th:text="${shop.status == 'CLOSE_REQUEST' ? shop.reasonForClosure : ''}"></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

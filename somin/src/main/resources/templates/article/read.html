@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>게시글 보기</title>
+</head>
+<body>
+<h1>[[${articles.id}]]. [[${articles.title}]]</h1>
+<p>[[${articles.content}]]</p>
+<a th:href="@{/boards/{id}(id=${articles.board.id})}">뒤로</a>
+<a th:href="@{/update-view/{id}(id=${articles.id})}">수정</a>
+<form th:action="@{/article/{id}/delete(id=${articles.id})}" method="post">
+    삭제용 비번: <input type="password" name="pwd">
+    <button type="submit">삭제</button>
+</form>
+<!-- 댓글 작성-->
+<div>
+    <form th:action="@{/article/{id}/comment(id=${articles.id})}" method="post">
+        <label for="content-input">
+            댓글내용: <input id="content-input" type="text" name="content">
+        </label>
+        <label for="password-input">
+            댓글비번: <input id="password-input" type="password" name="password">
+        </label>
+        <button type="submit">댓글작성</button>
+    </form>
+</div>
+
+<!--댓글 목록-->
+
+<div th:if="${comments.isEmpty()}">
+    No Comments Here...
+</div>
+<div th:unless="${comments.isEmpty()}" th:each="comment: ${comments}">
+    <p>[[${comment.content}]]</p>
+    <form th:action="@{/article/{id}/comment/{commentId}/delete(id=${articles.id}, commentId=${comment.id})}" method="post">
+        <input type="password" name="password">
+        <button type="submit">삭제</button>
+    </form>
+</div>
+
+</body>
+</html>
